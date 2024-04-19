@@ -1,0 +1,52 @@
+import java.util.*;
+public class RPSGame2 {
+    public static void main(String[] args){
+        Scanner scan=new Scanner(System.in);
+        Random randomno = new Random();
+        String option;
+
+        //Entering the name of the player
+        System.out.print("Enter the Your name: ");
+        String Player= scan.nextLine();
+
+        do{
+            //String array for options
+            String[] yourChoices={"Rock", "Paper", "Scissor"};
+
+            //Entering the input of the player
+            System.out.print("Enter your choice (Rock, Paper, Scissor): ");
+            String PlayerChoice=scan.nextLine();
+
+            //Giving input for the computer
+
+            String randomElement = yourChoices[randomno.nextInt(yourChoices.length)];
+            System.out.println("Computer pick is: "+randomElement);
+
+            if(PlayerChoice.equals(randomElement)){
+                System.out.println("Its Tie match");
+            }
+            else if(PlayerChoice.equals("Rock") && randomElement.equals("Paper")){
+                System.out.println("Computer Won the game");
+            }
+            else if(PlayerChoice.equals("Paper") && randomElement.equals("Rock")){
+                System.out.println(Player+" Won the game");
+            }
+            else if(PlayerChoice.equals("Paper") && randomElement.equals("Scissor")){
+                System.out.println("Computer Won the game");
+            }
+            else if(PlayerChoice.equals("Scissor") && randomElement.equals("Paper")){
+                System.out.println(Player+"  Won the game");
+            }
+            else if(PlayerChoice.equals("Rock") && randomElement.equals("Scissor")){
+                System.out.println(Player+"  Won the game");
+            }
+            else if(PlayerChoice.equals("Scissor") && randomElement.equals("Rock")){
+                System.out.println("Computer Won the game");
+            }
+            System.out.println("Do you want play again(Yes/No): ");
+            option=scan.nextLine();
+
+        }while(option.equals("Yes"));
+
+    }
+}
